@@ -1,0 +1,29 @@
+{
+  "farma": [
+    {
+      "id": 1,
+      "name": "X",
+      "price": 13.99,
+      "status": "disponivel",
+      "count": 8
+    },
+    {
+      "id": 2,
+      "name": "Y",
+      "price": 33.99,
+      "count": 0
+    },
+    {
+      "id": 8,
+      "name": "dwdawd",
+      "price": "12",
+      "count": "312"
+    },
+    {
+      "id": 23,
+      "name": "Remedio 1",
+      "price": "45.90",
+      "count": "12"
+    }
+  ]
+}
