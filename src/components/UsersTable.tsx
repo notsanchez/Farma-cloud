@@ -28,17 +28,51 @@ const UsersTable = () => {
                   </div>
                 </td>
                 <th>
-                  <button className="btn btn-ghost btn-sm font-bold">
-                    Clique para ver
-                  </button>
+                  <label htmlFor="my-modal-4" className="btn modal-button">
+                    clique para ver
+                  </label>
+
+                  <input
+                    type="checkbox"
+                    id="my-modal-4"
+                    className="modal-toggle"
+                  />
+                  <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                    <label className="modal-box relative" htmlFor="">
+                      <h3 className="text-lg font-bold">
+                        Congratulations random Internet user!
+                      </h3>
+                      <p className="py-4">
+                        You've been selected for a chance to get one year of
+                        subscription to use Wikipedia for free!
+                      </p>
+                    </label>
+                  </label>
                 </th>
                 <td>
                   <span className="badge badge-ghost badge-sm">90</span>
                 </td>
                 <th>
-                  <button className="btn btn-ghost btn-sm font-bold">
-                    Clique para ver
-                  </button>
+                  <label htmlFor="my-modal-4" className="btn modal-button">
+                    clique para ver
+                  </label>
+
+                  <input
+                    type="checkbox"
+                    id="my-modal-4"
+                    className="modal-toggle"
+                  />
+                  <label htmlFor="my-modal-4" className="modal cursor-pointer">
+                    <label className="modal-box relative" htmlFor="">
+                      <h3 className="text-lg font-bold">
+                        Congratulations random Internet user!
+                      </h3>
+                      <p className="py-4">
+                        You've been selected for a chance to get one year of
+                        subscription to use Wikipedia for free!
+                      </p>
+                    </label>
+                  </label>
                 </th>
                 <th>
                   <h1>1.500</h1>
