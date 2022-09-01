@@ -4,6 +4,7 @@ import Table from "./components/Table";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./components/AddProduct";
+import UsersTable from "./components/UsersTable";
 
 const App = () => {
   const [data, setData]: any = useState([]);
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar data={data} setProducts={setProducts} products={products} />
       <Routes>
         <Route
           path="/"
@@ -38,6 +39,14 @@ const App = () => {
           element={
             <>
               <AddProduct />
+            </>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <>
+              <UsersTable />
             </>
           }
         />
