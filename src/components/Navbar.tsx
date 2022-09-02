@@ -43,8 +43,8 @@ const Navbar = ({ data, setProducts, products }: any) => {
           </div>
         </div>
         <div className="navbar-center">
-          <Link to="/" className="btn btn-ghost normal-case text-xl">
-            Farma Cloud
+          <Link to="/" className="btn uppercase text-xl m-6">
+            💊 Farma Cloud
           </Link>
         </div>
         <div className="navbar-end">

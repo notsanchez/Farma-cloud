@@ -10,6 +10,8 @@ const Table = ({ data, setProducts, products }: any) => {
   const [modalPrice, setModalPrice] = useState(modalItem.price);
   const [modalQty, setModalQty] = useState(modalItem.count);
 
+  console.log(modalName);
+
   const handleSaveChanges = async () => {
     await axios
       .patch("http://localhost:3001/farma/" + modalItem.id, {
@@ -29,8 +31,6 @@ const Table = ({ data, setProducts, products }: any) => {
         window.location.reload();
       });
   };
-
-  console.log(modalItem);
 
   const dateNow = new Date().getTime() / 1000;
 
