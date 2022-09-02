@@ -9,14 +9,17 @@ import UsersTable from "./components/UsersTable";
 const App = () => {
   const [data, setData]: any = useState([]);
   const [products, setProducts]: any = useState([]);
+  const [users, setUsers]: any = useState("");
 
   useEffect(() => {
     axios.get("http://localhost:3001/farma").then((res) => {
       setData(res.data);
     });
-  }, []);
 
-  console.log(products);
+    axios.get("http://localhost:3001/users").then((res) => {
+      setUsers(res.data);
+    });
+  }, []);
 
   return (
     <>
@@ -27,6 +30,7 @@ const App = () => {
           element={
             <>
               <Table
+                setData={setData}
                 data={data}
                 setProducts={setProducts}
                 products={products}
@@ -46,7 +50,7 @@ const App = () => {
           path="/users"
           element={
             <>
-              <UsersTable />
+              <UsersTable users={users} />
             </>
           }
         />

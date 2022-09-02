@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-const UsersTable = () => {
+const UsersTable = ({ users }: any) => {
+  const [modalDesc, setModalDesc] = useState("");
+  const [workDays, setWorkDays] = useState([]);
+  const [modalItem, setModalItem]: any = useState("");
+
+  console.log(modalItem);
+
   return (
     <>
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full flex flex-col">
         <table className="table w-full">
           <thead>
             <tr>
@@ -17,70 +23,167 @@ const UsersTable = () => {
             </tr>
           </thead>
           <tbody>
-            <>
-              <tr className={`${7 <= 0 ? "opacity-20" : "opacity-100"}`}>
-                <th></th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div>
-                      <div className="font-bold">Joao pereira silva Gomes</div>
-                    </div>
+            {users &&
+              users.map((item: any, i: any) => (
+                <>
+                  <tr>
+                    <th></th>
+                    <td>
+                      <div className="flex items-center space-x-3">
+                        <div>
+                          <div className="font-bold">{item.id}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <th>
+                      <label
+                        onClick={() => setWorkDays(users[i].workTime)}
+                        htmlFor="my-modal-4"
+                        className="btn modal-button"
+                      >
+                        clique para ver
+                      </label>
+                    </th>
+                    <td>
+                      <span className="badge badge-ghost badge-sm">
+                        {item.age}
+                      </span>
+                    </td>
+                    <th>
+                      <label
+                        onClick={() => setModalDesc(users[i].salario)}
+                        htmlFor="my-modal"
+                        className="btn modal-button"
+                      >
+                        clique para ver
+                      </label>
+                    </th>
+                    <th>
+                      <h1>{item.vendas}</h1>
+                    </th>
+                    <th>
+                      <label
+                        onClick={() => setModalItem(users[i])}
+                        htmlFor="my-modal-2"
+                        className="btn btn-ghost btn-md"
+                      >
+                        Editar
+                      </label>
+                    </th>
+                  </tr>
+                </>
+              ))}
+
+            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
+            <label htmlFor="my-modal-4" className="modal cursor-pointer">
+              <label
+                className="modal-box flex flex-col items-center"
+                htmlFor=""
+              >
+                <hr />
+                <h3 className="text-lg font-bold mb-6">Horario de trabalho:</h3>
+                {workDays.map((item: any, i: any) => (
+                  <div key={i}>
+                    <h1 className="font-semibold uppercase">{item} ✔️</h1>
                   </div>
-                </td>
-                <th>
-                  <label htmlFor="my-modal-4" className="btn modal-button">
-                    clique para ver
-                  </label>
+                ))}
+              </label>
+            </label>
+
+            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            <label htmlFor="my-modal" className="modal cursor-pointer">
+              <label
+                className="modal-box flex flex-col items-center"
+                htmlFor=""
+              >
+                <h3 className="text-lg font-bold">Salario total:</h3>
+                <p className="py-4">R$ {modalDesc}</p>
+              </label>
+            </label>
+
+            <>
+              <input type="checkbox" id="my-modal-2" className="modal-toggle" />
+
+              <div className="modal cursor-pointer flex flex-col items-center gap-4">
+                <label
+                  className="modal-box flex flex-col items-center gap-2"
+                  htmlFor=""
+                >
+                  <h3 className="text-lg font-bold mb-2">Editar funcionario</h3>
+                  <p className="text-sm m-4">Nome:</p>
+                  <input
+                    type="text"
+                    defaultValue={modalItem.id}
+                    placeholder="Nome"
+                    className="input input-ghost w-full max-w-xs"
+                  />
+                  <p className="text-sm m-4">Horario de trabalho:</p>
+
+                  <div className="flex gap-2">
+                    <button className="btn">Seg</button>
+                    <button className="btn">Terç</button>
+                    <button className="btn">Qua</button>
+                    <button className="btn">Qui</button>
+                    <button className="btn">Sex</button>
+                    <button className="btn">Sab</button>
+                    <button className="btn">Dom</button>
+                  </div>
 
                   <input
-                    type="checkbox"
-                    id="my-modal-4"
-                    className="modal-toggle"
+                    type="number"
+                    defaultValue={modalItem.price}
+                    placeholder="Horario entrada"
+                    className="input input-ghost w-full max-w-xs"
                   />
-                  <label htmlFor="my-modal-4" className="modal cursor-pointer">
-                    <label className="modal-box relative" htmlFor="">
-                      <h3 className="text-lg font-bold">
-                        Congratulations random Internet user!
-                      </h3>
-                      <p className="py-4">
-                        You've been selected for a chance to get one year of
-                        subscription to use Wikipedia for free!
-                      </p>
-                    </label>
-                  </label>
-                </th>
-                <td>
-                  <span className="badge badge-ghost badge-sm">90</span>
-                </td>
-                <th>
-                  <label htmlFor="my-modal-4" className="btn modal-button">
-                    clique para ver
-                  </label>
-
                   <input
-                    type="checkbox"
-                    id="my-modal-4"
-                    className="modal-toggle"
+                    type="number"
+                    defaultValue={modalItem.price}
+                    placeholder="Horario saída"
+                    className="input input-ghost w-full max-w-xs"
                   />
-                  <label htmlFor="my-modal-4" className="modal cursor-pointer">
-                    <label className="modal-box relative" htmlFor="">
-                      <h3 className="text-lg font-bold">
-                        Congratulations random Internet user!
-                      </h3>
-                      <p className="py-4">
-                        You've been selected for a chance to get one year of
-                        subscription to use Wikipedia for free!
-                      </p>
+                  <p className="text-sm m-4">Idade:</p>
+                  <input
+                    type="number"
+                    defaultValue={modalItem.age}
+                    placeholder="Idade"
+                    className="input input-ghost w-full max-w-xs"
+                  />
+                  <p className="text-sm m-4">Salario:</p>
+                  <input
+                    type="number"
+                    defaultValue={modalItem.salario}
+                    placeholder="Salario"
+                    className="input input-ghost w-full max-w-xs"
+                  />
+                  <p className="text-lg m-4">
+                    Total de vendas: {modalItem.vendas}
+                  </p>
+
+                  <div className="flex gap-4 m-4">
+                    <label
+                      onClick={() => {
+                        setModalItem("");
+                      }}
+                      className="btn btn-primary"
+                    >
+                      Salvar
                     </label>
-                  </label>
-                </th>
-                <th>
-                  <h1>1.500</h1>
-                </th>
-              </tr>
+                    <label
+                      onClick={() => {
+                        setModalItem("");
+                      }}
+                      htmlFor="my-modal-2"
+                      className="btn btn-warning"
+                    >
+                      Descartar
+                    </label>
+                  </div>
+                </label>
+              </div>
             </>
           </tbody>
         </table>
+        <button className="btn btn-ghost m-6">Adicionar funcionario</button>
       </div>
     </>
   );

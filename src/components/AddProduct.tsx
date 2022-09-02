@@ -3,8 +3,8 @@ import axios from "axios";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [qty, setQty] = useState("");
+  const [price, setPrice] = useState(0);
+  const [qty, setQty] = useState(0);
 
   const handleAddProduct = () => {
     axios
