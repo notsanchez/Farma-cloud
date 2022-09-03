@@ -13,8 +13,6 @@ const UsersTable = ({ users }: any) => {
   const [newSalario, setNewSalario] = useState(modalItem.salario);
   const [daysOnWeek, setDaysOnWeek]: any = useState([]);
 
-  console.log(modalItem.saida);
-
   const handleAddUser = () => {
     axios
       .post("http://localhost:3001/users", {
@@ -78,7 +76,7 @@ const UsersTable = ({ users }: any) => {
                     <td>
                       <div className="flex items-center space-x-3">
                         <div>
-                          <div className="font-bold">{item.id}</div>
+                          <div className="font-bold">{item.nome}</div>
                         </div>
                       </div>
                     </td>

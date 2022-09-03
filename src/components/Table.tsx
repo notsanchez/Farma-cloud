@@ -10,8 +10,6 @@ const Table = ({ data, setProducts, products }: any) => {
   const [modalPrice, setModalPrice] = useState(modalItem.price);
   const [modalQty, setModalQty] = useState(modalItem.count);
 
-  console.log(modalName);
-
   const handleSaveChanges = async () => {
     await axios
       .patch("http://localhost:3001/farma/" + modalItem.id, {
@@ -141,18 +139,14 @@ const Table = ({ data, setProducts, products }: any) => {
                             onClick={() => {
                               setProducts([...products, data[i]]);
                             }}
-                            className="btn btn-ghost btn-xs"
+                            className={`btn btn-ghost btn-xs ${
+                              products.includes(item.id) ? "btn-disabled" : ""
+                            }`}
                           >
                             Adicionar em pedido
                           </button>
                         ) : (
-                          <button
-                            disabled
-                            onClick={() => {
-                              setProducts([...products, data[i]]);
-                            }}
-                            className="btn btn-ghost btn-xs"
-                          >
+                          <button disabled className="btn btn-ghost btn-xs">
                             Adicionar em pedido
                           </button>
                         )}
