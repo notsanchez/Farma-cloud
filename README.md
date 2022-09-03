@@ -1,4 +1,4 @@
-# Farma-cloud
+# 💊 Farma cloud - Gestão Farmacêutica
 
 Solução completa para gestão farmaceutica consumindo API Rest, Feito com Vite (React), TailwindCSS, DaisyUI e MerakiUI.
 <br />
